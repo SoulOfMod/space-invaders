@@ -17,7 +17,7 @@ class App extends React.Component {
       alienPositionRow: 1,
 
 
-      displayAlien: [],
+      displayAlien: [true,true,true,true,true,true,true,true,true,true],
 
       // La bullet apparait sur la même Row que le vaisseau
       bulletPositionRow: 43,
@@ -51,7 +51,6 @@ class App extends React.Component {
       beginning: false,
       // Au départ displayAlien est un array vide. 
       // Grâce à la méthode fill on lui ajoute 10 éléments de valeurs true à partir de l'index 0
-      displayAlien: (new Array(10)).fill(true, 0)
     })
   }
 
