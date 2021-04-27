@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button'
 import Bullet from './components/Bullet';
 import Spaceship from './components/Spaceship';
 import Alien from './components/Alien.jsx';
+import StartGame from './components/StartGame.jsx'
+import FinishedGame from './components/FinishedGame.jsx'
 
-import Banner from './img/space_invaders_banner.png';
-import Grandpa from './img/space_invader_Grandpa.png';
-import Grandma from './img/space_invader_Grandma.png';
 
 class App extends React.Component {
   constructor() {
@@ -177,34 +175,15 @@ class App extends React.Component {
     // Si il ne reste aucun alien ou si on a perdu le jeu.
     if (this.state.displayAlien.length !== 0 && (this.state.displayAlien.indexOf(true) === -1 || this.state.lostGame)) {
       return (
-        <div className='container'>
-
-          <img className='banner' src={Banner} alt='Title Game Banner' />
-
-          <img className='grandpaImg' src={Grandpa} alt='Space Invader Grandpa' />
-
-          <img className='grandmaImg' src={Grandma} alt='Space Invader Grandma' />
-
-          <span className='grandpa'> Grandpa </span>
-          <span className='grandma'> Grandma </span>
-
-          <h2 className='gameOverDisplay'>
-            {/* Si lostGame égale à true alors afficher Game Over sinon afficher You won */}
-            {this.state.lostGame === true ? "GAME OVER" : "YOU WON !!!"}
-          </h2>
-
-        </div>
+        /////////finished
+        <FinishedGame />
       );
     } else {
       // 1/ Le state beginning est par defaut sur true donc la 1ere page que l'on a est celle çi.
       if (this.state.beginning) {
         return (
-          <div id='firstMenu'>
-            <h1>Space Invaders </h1>
-            <section>Déplacez vous de droite à gauche en tirant sur les extraterrestres avant qu'ils ne descendent sur vous .</section>
-            {/* 2/ Lorsque que l'on click sur ce button, ça appelle la fonction toBegin  */}
-            <Button begin={this.toBegin}></Button>
-          </div>
+        /////////startgame
+        <StartGame toBegin = {this.toBegin}/>
         )
       } else {
         return (
