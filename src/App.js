@@ -27,7 +27,6 @@ class App extends React.Component {
       // Le spaceship est au départ sur la colonne 23, au milieu.
       spaceshipPositionColumn: 23,
 
-      noTouchYet: true,
 
       beginning: true,
       lostGame: false,
@@ -49,6 +48,7 @@ class App extends React.Component {
   toBegin() {
     this.setState({
       beginning: false,
+      moveForwardAlien() 
       // Au départ displayAlien est un array vide. 
       // Grâce à la méthode fill on lui ajoute 10 éléments de valeurs true à partir de l'index 0
     })
@@ -61,27 +61,7 @@ class App extends React.Component {
 
     // Lorsque l'on bouge le spaceship pour la 1ère fois ou on tir alors les Aliens se mettent
     // à avancer au même moment.
-    if (this.state.noTouchYet) {
-      if (e.keyCode === 39) {
-        this.moveForwardAlien()
-        this.setState({
-          spaceshipPositionColumn: this.state.spaceshipPositionColumn + 1,
-          noTouchYet: false
-        })
-      } else if (e.keyCode === 37) {
-        this.moveForwardAlien()
-        this.setState({
-          spaceshipPositionColumn: this.state.spaceshipPositionColumn - 1,
-          noTouchYet: false
-        })
-      } else if (e.keyCode === 32 && this.state.displayBullet === 'none') {
-        this.setState({ noTouchYet: false })
-        this.bulletShot();
-        this.moveForwardAlien()
-      } else {
-
-      }
-    } else {
+     {
 
       // Lorsque le joueur tape la touche de gauche ou de droite, on change la colonne
       // sur laquelle le spaceship est grâce à la state spaceshipPositionColumn qui est
